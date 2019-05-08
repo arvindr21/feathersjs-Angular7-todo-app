@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "f96713d9-f86f-4e8e-84ed-b33b0b5c99ee",
+		"name": "feathersjs-Angular7-todo-app",
+		"description": "feathersjs-Angular7-todo-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Todos - Paginated",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/v1/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"v1",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One todo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/v1/todos/5cd25d6cbb31283b6a801560",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"v1",
+						"todos",
+						"5cd25d6cbb31283b6a801560"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new Todo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"Second todo\",\n\t\"isCompleted\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/v1/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"v1",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Todo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isCompleted\": true,\n    \"text\": \"Second todo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/v1/todos/5cd25d6cbb31283b6a801560",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"v1",
+						"todos",
+						"5cd25d6cbb31283b6a801560"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Todo",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isCompleted\": true,\n    \"text\": \"Second todo update\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/v1/todos/5cd25d6cbb31283b6a801560",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"v1",
+						"todos",
+						"5cd25d6cbb31283b6a801560"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Todo",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/v1/todos/5cd25d6cbb31283b6a801560",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"v1",
+						"todos",
+						"5cd25d6cbb31283b6a801560"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
