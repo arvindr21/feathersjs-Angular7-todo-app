@@ -7,231 +7,414 @@
 	},
 	"item": [
 		{
-			"name": "Get All Todos - Paginated",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:3030/api/v1/todos?$limit=10&$skip=10",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3030",
-					"path": [
-						"api",
-						"v1",
-						"todos"
-					],
-					"query": [
-						{
-							"key": "$limit",
-							"value": "10"
+			"name": "Todos",
+			"item": [
+				{
+					"name": "Get All Todos - Paginated",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJ1c2VySWQiOiI1Y2Q1NmVmYzUwNDY0YzI2YjU3MzZiOTEiLCJpYXQiOjE1NTc0OTE0OTcsImV4cCI6MTU1NzU3Nzg5NywiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiYW5vbnltb3VzIiwianRpIjoiNTM0NjM5NTYtOTUwNS00ZDJjLTkwNjAtZjE1MTYyODVhMzcwIn0.e-geafsCTaTN4HaElmyzwwmWWEyGxyE07Hbdaw-DIlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
 						},
-						{
-							"key": "$skip",
-							"value": "10"
+						"url": {
+							"raw": "http://localhost:3030/api/v1/todos?$limit=10&$skip=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "$limit",
+									"value": "10"
+								},
+								{
+									"key": "$skip",
+									"value": "10"
+								}
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Query Incomplete Todos - Paginated",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3030/api/v1/todos?$limit=10&$skip=2&isCompleted=false",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3030",
-					"path": [
-						"api",
-						"v1",
-						"todos"
-					],
-					"query": [
-						{
-							"key": "$limit",
-							"value": "10"
+				{
+					"name": "Query Incomplete Todos - Paginated",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJ1c2VySWQiOiI1Y2Q1NmVmYzUwNDY0YzI2YjU3MzZiOTEiLCJpYXQiOjE1NTc0OTE0OTcsImV4cCI6MTU1NzU3Nzg5NywiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiYW5vbnltb3VzIiwianRpIjoiNTM0NjM5NTYtOTUwNS00ZDJjLTkwNjAtZjE1MTYyODVhMzcwIn0.e-geafsCTaTN4HaElmyzwwmWWEyGxyE07Hbdaw-DIlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
 						},
-						{
-							"key": "$skip",
-							"value": "2"
-						},
-						{
-							"key": "isCompleted",
-							"value": "false"
+						"url": {
+							"raw": "http://localhost:3030/api/v1/todos?$limit=10&$skip=2&isCompleted=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "$limit",
+									"value": "10"
+								},
+								{
+									"key": "$skip",
+									"value": "2"
+								},
+								{
+									"key": "isCompleted",
+									"value": "false"
+								}
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "Sort by Created At - Paginated",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJ1c2VySWQiOiI1Y2Q1NmVmYzUwNDY0YzI2YjU3MzZiOTEiLCJpYXQiOjE1NTc0OTE0OTcsImV4cCI6MTU1NzU3Nzg5NywiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiYW5vbnltb3VzIiwianRpIjoiNTM0NjM5NTYtOTUwNS00ZDJjLTkwNjAtZjE1MTYyODVhMzcwIn0.e-geafsCTaTN4HaElmyzwwmWWEyGxyE07Hbdaw-DIlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/v1/todos?$limit=10&$skip=2&isCompleted=false&$sort[createdAt]=-1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "$limit",
+									"value": "10"
+								},
+								{
+									"key": "$skip",
+									"value": "2"
+								},
+								{
+									"key": "isCompleted",
+									"value": "false"
+								},
+								{
+									"key": "$sort[createdAt]",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One todo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJ1c2VySWQiOiI1Y2Q1NmVmYzUwNDY0YzI2YjU3MzZiOTEiLCJpYXQiOjE1NTc0OTE0OTcsImV4cCI6MTU1NzU3Nzg5NywiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiYW5vbnltb3VzIiwianRpIjoiNTM0NjM5NTYtOTUwNS00ZDJjLTkwNjAtZjE1MTYyODVhMzcwIn0.e-geafsCTaTN4HaElmyzwwmWWEyGxyE07Hbdaw-DIlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/v1/todos/5cd545e7c3e8ef0b0e9c1015",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"v1",
+								"todos",
+								"5cd545e7c3e8ef0b0e9c1015"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new Todo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJ1c2VySWQiOiI1Y2Q1NmVmYzUwNDY0YzI2YjU3MzZiOTEiLCJpYXQiOjE1NTc0OTE0OTcsImV4cCI6MTU1NzU3Nzg5NywiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiYW5vbnltb3VzIiwianRpIjoiNTM0NjM5NTYtOTUwNS00ZDJjLTkwNjAtZjE1MTYyODVhMzcwIn0.e-geafsCTaTN4HaElmyzwwmWWEyGxyE07Hbdaw-DIlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"Second todo\",\n\t\"isCompleted\": false\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/v1/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Todo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJ1c2VySWQiOiI1Y2Q1NmVmYzUwNDY0YzI2YjU3MzZiOTEiLCJpYXQiOjE1NTc0OTE0OTcsImV4cCI6MTU1NzU3Nzg5NywiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiYW5vbnltb3VzIiwianRpIjoiNTM0NjM5NTYtOTUwNS00ZDJjLTkwNjAtZjE1MTYyODVhMzcwIn0.e-geafsCTaTN4HaElmyzwwmWWEyGxyE07Hbdaw-DIlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isCompleted\": true,\n    \"text\": \"Second todo\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/v1/todos/5cd545e7c3e8ef0b0e9c1015",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"v1",
+								"todos",
+								"5cd545e7c3e8ef0b0e9c1015"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Todo",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJ1c2VySWQiOiI1Y2Q1NmVmYzUwNDY0YzI2YjU3MzZiOTEiLCJpYXQiOjE1NTc0OTE0OTcsImV4cCI6MTU1NzU3Nzg5NywiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiYW5vbnltb3VzIiwianRpIjoiNTM0NjM5NTYtOTUwNS00ZDJjLTkwNjAtZjE1MTYyODVhMzcwIn0.e-geafsCTaTN4HaElmyzwwmWWEyGxyE07Hbdaw-DIlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isCompleted\": true,\n    \"text\": \"Second todo update\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/v1/todos/5cd545e7c3e8ef0b0e9c1015",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"v1",
+								"todos",
+								"5cd545e7c3e8ef0b0e9c1015"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Todo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJ1c2VySWQiOiI1Y2Q1NmVmYzUwNDY0YzI2YjU3MzZiOTEiLCJpYXQiOjE1NTc0OTE0OTcsImV4cCI6MTU1NzU3Nzg5NywiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiYW5vbnltb3VzIiwianRpIjoiNTM0NjM5NTYtOTUwNS00ZDJjLTkwNjAtZjE1MTYyODVhMzcwIn0.e-geafsCTaTN4HaElmyzwwmWWEyGxyE07Hbdaw-DIlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/v1/todos/5cd545e7c3e8ef0b0e9c1015",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"v1",
+								"todos",
+								"5cd545e7c3e8ef0b0e9c1015"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get One todo",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"arvind@myapp.com\",\n\t\"password\": \"arvind\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3030/api/v1/todos/5cd25d6cbb31283b6a801560",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3030",
-					"path": [
-						"api",
-						"v1",
-						"todos",
-						"5cd25d6cbb31283b6a801560"
-					]
+				{
+					"name": "Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"strategy\": \"local\",\n\t\"email\": \"arvind@myapp.com\",\n\t\"password\": \"arvind\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/authentication/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"authentication",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create new Todo",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"text\": \"Second todo\",\n\t\"isCompleted\": false\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3030/api/v1/todos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3030",
-					"path": [
-						"api",
-						"v1",
-						"todos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Todo",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"isCompleted\": true,\n    \"text\": \"Second todo\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3030/api/v1/todos/5cd25d6cbb31283b6a801560",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3030",
-					"path": [
-						"api",
-						"v1",
-						"todos",
-						"5cd25d6cbb31283b6a801560"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Patch Todo",
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"isCompleted\": true,\n    \"text\": \"Second todo update\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3030/api/v1/todos/5cd25d6cbb31283b6a801560",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3030",
-					"path": [
-						"api",
-						"v1",
-						"todos",
-						"5cd25d6cbb31283b6a801560"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Todo",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:3030/api/v1/todos/5cd25d6cbb31283b6a801560",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3030",
-					"path": [
-						"api",
-						"v1",
-						"todos",
-						"5cd25d6cbb31283b6a801560"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

@@ -6,5 +6,29 @@
     "default": 10,
     "max": 50
   },
-  "mongodb": "mongodb://localhost:27017/todo_app_backend"
+  "mongodb": "mongodb://localhost:27017/todo_app_backend",
+  "authentication": {
+    "secret": "407f4fac2d54bf3427ebf4aa5b4462b23486dd153900455b6c3c30307abbf84ea0516fd1bc417e2c7ffbe36f7ee8082ec6afe3f27b200ea9fe528ba91d7ba6086d19175fcff09faead0a01670ff678c7139348de207cfa4924abde8f447914053a87b3a7909b6372533e86bd07d9ef0ff596b37416a8ff6913e4ec2f57dba95569a55daf0a8eed533adbfcca62e9394512d08e3bfa28bc71bf5e47a8ce82aa0eb455006ea29e5c2c4059a0a775a6e803529ae78eb99e1793ab0dd00a8fc2dc7e0f58f18e22a1fc51311d1e2a9e78052cc79f2637815efa319b6363d037c0ebaf7d5efc29027da6fc1501b18ed3295b7266c79489251fc5a3851e30d18298b031",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  }
 }
