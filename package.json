@@ -6,7 +6,8 @@
   "scripts": {
     "start-backend": "cd backend && npm start",
     "start-frontend": "cd frontend && npm start",
-    "start": "concurrently \"npm:start-backend\" \"npm:start-frontend\""
+    "start": "concurrently \"npm:start-backend\" \"npm:start-frontend\"",
+    "postinstall": "cd backend && npm install && cd .. && cd frontend && npm install"
   },
   "repository": {
     "type": "git",
