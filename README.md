@@ -10,6 +10,7 @@ A Todo App with Feathersjs backend and Angular Frontend
 
 ## Frontend
 - Angular 7 -  https://angular.io/
+- Angular CLI - https://cli.angular.io/ 
 - Angular Material Design - https://material.angular.io/
 
 ## Getting Started
