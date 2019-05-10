@@ -5,8 +5,8 @@ A Todo App with Feathersjs backend and Angular Frontend
 ## Backend
 - Feathersjs: https://feathersjs.com/
 - Feathersjs CLI: https://github.com/feathersjs/cli
-- MongoDB
-- Mongoose
+- MongoDB: https://www.mongodb.com/
+- Mongoose: https://mongoosejs.com/
 
 ## Frontend
 - Angular 7 -  https://angular.io/
