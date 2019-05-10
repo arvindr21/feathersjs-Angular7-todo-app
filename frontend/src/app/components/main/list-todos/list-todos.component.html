@@ -1,0 +1,34 @@
+<div class="nav-btn">
+  <button mat-raised-button color="primary" routerLink="/create">
+    Create Todo
+  </button>
+  <button mat-raised-button class="ml" (click)="getCompletedTodos()">
+    Completed
+  </button>
+  <button mat-raised-button class="ml" (click)="getIncompleteTodos()">
+    Incomplete
+  </button>
+  <button mat-raised-button class="ml" (click)="clearStatusFilter()" *ngIf="filtered" color="accent">
+    Clear Filter
+  </button>
+</div>
+
+<div>
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let todo of todos">
+      <mat-checkbox color="primary" (change)="updateTodo(todo)" [(ngModel)]="todo.isCompleted">{{ todo.text }}</mat-checkbox>
+      <button mat-icon-button color="warn" class="ml" (click)="deleteTodo(todo._id)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+
+  <mat-paginator
+    [length]="total"
+    [pageSize]="limit"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = paginateList($event)"
+  >
+  </mat-paginator>
+
+</div>

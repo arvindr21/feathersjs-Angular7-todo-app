@@ -16,7 +16,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3030/api/v1/todos",
+					"raw": "http://localhost:3030/api/v1/todos?$limit=10&$skip=10",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -26,6 +26,55 @@
 						"api",
 						"v1",
 						"todos"
+					],
+					"query": [
+						{
+							"key": "$limit",
+							"value": "10"
+						},
+						{
+							"key": "$skip",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Incomplete Todos - Paginated",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/v1/todos?$limit=10&$skip=2&isCompleted=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"v1",
+						"todos"
+					],
+					"query": [
+						{
+							"key": "$limit",
+							"value": "10"
+						},
+						{
+							"key": "$skip",
+							"value": "2"
+						},
+						{
+							"key": "isCompleted",
+							"value": "false"
+						}
 					]
 				}
 			},

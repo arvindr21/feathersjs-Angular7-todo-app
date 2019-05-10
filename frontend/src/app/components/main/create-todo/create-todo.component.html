@@ -1,0 +1,13 @@
+<div class="nav-btn">
+  <button mat-raised-button color="accent" routerLink="/home">All Todos</button>
+</div>
+
+<div class="form-container">
+  <mat-form-field>
+    <input matInput placeholder="Enter To do to do" [(ngModel)]="todo"/>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button color="warn" (click)="createTodo(true)">Create</button>
+    <button class="ml" mat-raised-button (click)="createTodo(false)">Create and Add one more</button>
+  </div>
+</div>

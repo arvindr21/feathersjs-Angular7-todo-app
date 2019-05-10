@@ -5,6 +5,7 @@
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
+  
   const todos = new Schema({
     text: { type: String, required: [true, 'A todo text is required'] },
     isCompleted: {type: Boolean, default: false},
@@ -13,6 +14,8 @@ module.exports = function (app) {
   }, {
     timestamps: true
   });
+
+  todos.index({ text: 'text' }); 
 
   return mongooseClient.model('todos', todos);
 };

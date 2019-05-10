@@ -1,0 +1,25 @@
+{
+  "name": "feathersjs-Angular7-todo-app",
+  "version": "1.0.0",
+  "description": "A Todo App with Feathersjs backend and Angular Frontend",
+  "main": "index.js",
+  "scripts": {
+    "start-backend": "cd backend && npm start",
+    "start-frontend": "cd frontend && npm start",
+    "start": "concurrently \"npm:start-backend\" \"npm:start-frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arvindr21/feathersjs-Angular7-todo-app.git"
+  },
+  "keywords": [],
+  "author": "Arvind Ravulavaru <arvind.ravulavaru@gmail.com> (http://thejackalofjavascript.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arvindr21/feathersjs-Angular7-todo-app/issues"
+  },
+  "homepage": "https://github.com/arvindr21/feathersjs-Angular7-todo-app#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
