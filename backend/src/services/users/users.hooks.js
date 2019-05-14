@@ -1,43 +1,29 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
-const checkPermissions = require('feathers-permissions');
 const { hashPassword, protect } = require('@feathersjs/authentication-local').hooks;
-const { queryWithCurrentUser } = require('feathers-authentication-hooks');
-const { associateCurrentUser } = require('feathers-authentication-hooks');
+const { disallow } = require('feathers-hooks-common');
 
-const readRestrict = [
-  queryWithCurrentUser({
-    idField: '_id',
-    as: '_id'
-  })
-];
-
-const writeRestrict = [
-  associateCurrentUser({
-    idField: '_id',
-    as: '_id'
-  })
-];
+const { readRestrict, writeRestrict, permitAdmin, permitUser } = require('../../authorization');
 
 // update will replace the entire document. To merge with existing data patch should be used. 
 module.exports = {
   before: {
+    // on the user collection we are only letting the API to create and get one record. 
+    // We do not want to expose any other kind of user modification 
     all: [],
-    find: [authenticate('jwt'), checkPermissions({
-      roles: ['user']
-    }), ...readRestrict],
-    get: [authenticate('jwt'), checkPermissions({
-      roles: ['user']
-    }), ...readRestrict],
+    find: [disallow('rest')],
+    get: [authenticate('jwt'), permitUser, readRestrict],
     create: [hashPassword()],
-    update: [hashPassword(), authenticate('jwt'), checkPermissions({
-      roles: ['user']
-    }), ...writeRestrict],
-    patch: [hashPassword(), authenticate('jwt'), checkPermissions({
-      roles: ['user']
-    }), ...writeRestrict],
-    remove: [authenticate('jwt'), checkPermissions({
-      roles: ['user']
-    }), ...writeRestrict]
+    update: [disallow()],
+    patch: [disallow()],
+    remove: [disallow()]
+
+    // Commenting for future reference to show how to protect a HTTP VERB
+    // find: [authenticate('jwt'), permitUser, readRestrict],
+    // get: [authenticate('jwt'), permitUser, readRestrict],
+    // create: [hashPassword()],
+    // update: [hashPassword(), authenticate('jwt'), permitAdmin, writeRestrict],
+    // patch: [hashPassword(), authenticate('jwt'), permitAdmin, writeRestrict],
+    // remove: [authenticate('jwt'), permitAdmin, writeRestrict]
   },
 
   after: {
