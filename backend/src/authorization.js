@@ -1,19 +1,18 @@
-const { queryWithCurrentUser, associateCurrentUser } = require('feathers-authentication-hooks');
+const { queryWithCurrentUser, restrictToOwner } = require('feathers-authentication-hooks');
 const checkPermissions = require('feathers-permissions');
 
 // Access rights based on current user
 // A user who is indentified by their _id only will be allowed
-// to access the resource. 
+// to access the resource.
 const readRestrict = queryWithCurrentUser({
     idField: '_id',
-    as: '_id'
-})
+    as: 'created_by'
+});
 
-const writeRestrict = associateCurrentUser({
+const writeRestrict = restrictToOwner({
     idField: '_id',
-    as: '_id'
-})
-
+    ownerField: 'created_by'
+});
 
 // Access rights based on role
 const permitUser = checkPermissions({
