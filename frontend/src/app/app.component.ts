@@ -1,10 +1,24 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend';
+  constructor(
+    public authService: AuthService,
+    public router: Router
+  ) { }
+
+  isLoggedIn() {
+    return this.authService.isAuthenticated();
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
+  }
+
 }

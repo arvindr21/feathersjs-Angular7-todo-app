@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <p>
+    Reason: {{data.reason}}
+</p>
+<p>
+    Status: {{data.status}}
+</p>
+ </div>
+ <div mat-dialog-actions>
+   <button mat-button [mat-dialog-close]="true" (click)="goToPage('login')" color="primary">Login</button>
+ </div>
