@@ -10,13 +10,13 @@ const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
 const socketio = require('@feathersjs/socketio');
 
-
+// const swagger = require('./swagger');
 const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
 const channels = require('./channels');
-
 const mongoose = require('./mongoose');
+const authentication = require('./authentication');
 
 const app = express(feathers());
 
@@ -37,9 +37,11 @@ app.configure(express.rest());
 app.configure(socketio());
 
 app.configure(mongoose);
-
+// Load swagger - should be loaded before services
+// app.configure(swagger());
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);
+app.configure(authentication);
 // Set up our services (see `services/index.js`)
 app.configure(services);
 // Set up event channels (see channels.js)

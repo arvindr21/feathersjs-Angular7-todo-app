@@ -8,27 +8,47 @@
   <button mat-raised-button class="ml" (click)="getIncompleteTodos()">
     Incomplete
   </button>
-  <button mat-raised-button class="ml" (click)="clearStatusFilter()" *ngIf="filtered" color="accent">
+  <button
+    mat-raised-button
+    class="ml"
+    (click)="clearStatusFilter()"
+    *ngIf="filtered"
+    color="accent"
+  >
     Clear Filter
   </button>
 </div>
 
+<mat-card class="center" *ngIf="todos.length === 0">
+  <span>No Todos created yet!</span>
+</mat-card>
+
 <div>
   <mat-list role="list">
     <mat-list-item role="listitem" *ngFor="let todo of todos">
-      <mat-checkbox color="primary" (change)="updateTodo(todo)" [(ngModel)]="todo.isCompleted">{{ todo.text }}</mat-checkbox>
-      <button mat-icon-button color="warn" class="ml" (click)="deleteTodo(todo._id)">
+      <mat-checkbox
+        color="primary"
+        (change)="updateTodo(todo)"
+        [(ngModel)]="todo.isCompleted"
+        >{{ todo.text }}</mat-checkbox
+      >
+      <button
+        mat-icon-button
+        color="warn"
+        class="ml"
+        (click)="deleteTodo(todo._id)"
+      >
         <mat-icon>close</mat-icon>
       </button>
     </mat-list-item>
   </mat-list>
-
-  <mat-paginator
-    [length]="total"
-    [pageSize]="limit"
-    [pageSizeOptions]="pageSizeOptions"
-    (page)="pageEvent = paginateList($event)"
-  >
-  </mat-paginator>
-
+  <div *ngIf="todos.length">
+    <mat-paginator
+      [length]="total"
+      [pageSize]="limit"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="pageEvent = paginateList($event)"
+    >
+    </mat-paginator>
+  </div>
 </div>

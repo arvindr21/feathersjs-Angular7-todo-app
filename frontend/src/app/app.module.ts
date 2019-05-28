@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { A11yModule } from '@angular/cdk/a11y';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -52,6 +53,11 @@ import { ListTodosComponent } from './components/main/list-todos/list-todos.comp
 import { CreateTodoComponent } from './components/main/create-todo/create-todo.component';
 import { TodosService } from './services/todos.service';
 import { ConfirmationDialogComponent } from './components/shared/confirmation-dialog/confirmation-dialog.component';
+import { ErrorDialogComponent } from './components/shared/error-dialog/error-dialog.component';
+import { ErrorDialogService } from './components/shared/error-dialog/errordialog.service';
+import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 const modules = [
   A11yModule,
@@ -98,7 +104,10 @@ const modules = [
     AppComponent,
     ListTodosComponent,
     CreateTodoComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ErrorDialogComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -109,9 +118,16 @@ const modules = [
     ...modules
   ],
   entryComponents: [
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ErrorDialogComponent
   ],
-  providers: [TodosService],
+  providers: [
+    TodosService,
+    ErrorDialogService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

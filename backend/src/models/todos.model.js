@@ -8,9 +8,11 @@ module.exports = function (app) {
   
   const todos = new Schema({
     text: { type: String, required: [true, 'A todo text is required'] },
-    isCompleted: {type: Boolean, default: false},
+    isCompleted: {type: Boolean, default: false, required: [true, 'Todo completion status is required']},
     createdAt: { type: Date, 'default': Date.now },
-    updatedAt: { type: Date, 'default': Date.now }
+    updatedAt: { type: Date, 'default': Date.now },
+    created_by: { type: Schema.Types.ObjectId, ref: 'users' },
+    updated_by: { type: Schema.Types.ObjectId, ref: 'users' }
   }, {
     timestamps: true
   });

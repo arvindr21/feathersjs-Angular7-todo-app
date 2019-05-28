@@ -1,12 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!--  <span>HOME</span> -->
+    <span><a class="logo" href="/home">Todo App</a></span>
+    <span class="spacer"></span>
+    <div *ngIf="isLoggedIn()">
+      <button mat-button [matMenuTriggerFor]="menu">Username <mat-icon>more_vert</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item href="javascript:" (click)="logout()"
+          >Logout</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
 <div class="body-wrapper">
-  <div style="text-align:center">
-    <h1>
-      Todo App
-    </h1>
-  </div>
-  <div class="clear">
-    <router-outlet></router-outlet>
-  </div>
-  
+  <router-outlet></router-outlet>
 </div>
