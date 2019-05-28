@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "docs": "compodoc -p src/tsconfig.app.json --theme=material && http-server ./documentation -p 4201 -g -s -o"
+    "deploy": "npm run gendocs && gh-pages-deploy",
+    "gendocs": "compodoc -p src/tsconfig.app.json --theme=material",
+    "docs": "npm run gendocs && http-server ./documentation -p 4201 -g -s -o"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +41,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "gh-pages-deploy": "^0.5.1",
     "http-server": "^0.11.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -51,5 +54,8 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "documentation"
   }
 }
