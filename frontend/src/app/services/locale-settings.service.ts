@@ -13,15 +13,21 @@ export class LocaleSettingsService {
     'de': 'German'
   };
 
-  constructor() { }
+  DEFAULT = 'en';
+  LS_KEY = 'language';
+
+  // 
+  constructor() {
+    if (!this._getLanguage())
+      this.setLanguage(this.DEFAULT);
+  }
+
+  _getLanguage(): string {
+    return localStorage['language'];
+  }
 
   getLanguage(): string {
-    if (localStorage) {
-      return localStorage['language'] || 'en';
-    }
-    else {
-      return 'en';
-    }
+    return this._getLanguage() || this.DEFAULT;
   }
 
   setLanguage(language: string) {
