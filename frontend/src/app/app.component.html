@@ -1,14 +1,34 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <!--  <span>HOME</span> -->
-    <span><a class="logo" href="/home">Todo App</a></span>
+    <span
+      ><a class="logo" href="/home">{{ "APP.TITLE" | translate }}</a></span
+    >
     <span class="spacer"></span>
     <div *ngIf="isLoggedIn()">
-      <button mat-button [matMenuTriggerFor]="menu">Username <mat-icon>more_vert</mat-icon></button>
+      <button mat-button [matMenuTriggerFor]="menu">
+        {{'HEADER.NAME' | translate:{name:name} }}  <mat-icon>more_vert</mat-icon>
+      </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Profile</button>
-        <button mat-menu-item href="javascript:" (click)="logout()"
-          >Logout</button>
+        <button mat-menu-item>{{ "HEADER.PROFILE" | translate }}</button>
+        <button mat-menu-item href="javascript:" (click)="logout()">
+          {{ "HEADER.LOGOUT" | translate }}
+        </button>
+      </mat-menu>
+    </div>
+    <div>
+      <button mat-button [matMenuTriggerFor]="matLoc">
+        {{ translate.currentLang | langToCode }}
+      </button>
+      <mat-menu #matLoc="matMenu">
+        <button
+          mat-menu-item
+          *ngFor="let lang of translate.getLangs()"
+          [value]="lang"
+          (click)="changeLang(lang)"
+        >
+          {{ lang | langToCode }}
+        </button>
       </mat-menu>
     </div>
   </mat-toolbar-row>

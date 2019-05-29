@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { A11yModule } from '@angular/cdk/a11y';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -58,6 +61,14 @@ import { ErrorDialogService } from './components/shared/error-dialog/errordialog
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { LangToCodePipe } from './pipes/lang-to-code.pipe';
+
+
+// AoT requires an exported function for factories
+// https://stackblitz.com/github/ngx-translate/example
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 const modules = [
   A11yModule,
@@ -107,7 +118,8 @@ const modules = [
     ConfirmationDialogComponent,
     ErrorDialogComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LangToCodePipe
   ],
   imports: [
     BrowserModule,
@@ -115,6 +127,13 @@ const modules = [
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ...modules
   ],
   entryComponents: [

@@ -1,0 +1,10 @@
+{
+	"APP": {
+		"TITLE": "Toutes les applications"
+	},
+	"HEADER": {
+		"LOGOUT": "Connectez - Out",
+		"NAME": "{{name}}",
+		"PROFILE": "Profil"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"APP": {
+		"TITLE": "Todo App"
+	},
+	"HEADER": {
+		"LOGOUT": "Logout",
+		"NAME": "{{name}}",
+		"PROFILE": "Profile"
+	}
+}
