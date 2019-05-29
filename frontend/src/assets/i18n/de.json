@@ -1,0 +1,10 @@
+{
+	"APP": {
+		"TITLE": "Alle App"
+	},
+	"HEADER": {
+		"LOGOUT": "Ausloggen",
+		"NAME": "{{name}}",
+		"PROFILE": "Profil"
+	}
+}
