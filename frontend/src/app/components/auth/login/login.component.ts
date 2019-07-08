@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit {
       this.password = '';
 
       localStorage.setItem('token', res.accessToken);
+      localStorage.setItem('user', JSON.stringify(res.user));
+      this.authService.setUser(res.user);
 
       this.snackBar.open('User logged in Successfully!', '', {
         duration: 3000

@@ -2,7 +2,7 @@ const { authenticate } = require('@feathersjs/authentication').hooks;
 const { hashPassword, protect } = require('@feathersjs/authentication-local').hooks;
 const { disallow } = require('feathers-hooks-common');
 
-const { readRestrict, writeRestrict, permitAdmin, permitUser } = require('../../authorization');
+const { permitUser } = require('../../authorization');
 
 // update will replace the entire document. To merge with existing data patch should be used. 
 module.exports = {
@@ -11,13 +11,13 @@ module.exports = {
     // We do not want to expose any other kind of user modification 
     all: [],
     find: [disallow('rest')],
-    get: [authenticate('jwt'), permitUser, readRestrict],
+    get: [authenticate('jwt'), permitUser],
     create: [hashPassword()],
     update: [disallow()],
     patch: [disallow()],
     remove: [disallow()]
 
-    // Commenting for future reference to show how to protect a HTTP VERB
+    // Commenting for future reference to show how to protect a HTTP VERB on USER API
     // find: [authenticate('jwt'), permitUser, readRestrict],
     // get: [authenticate('jwt'), permitUser, readRestrict],
     // create: [hashPassword()],

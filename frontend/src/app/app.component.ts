@@ -13,7 +13,7 @@ import { LocaleSettingsService } from './services/locale-settings.service';
 })
 export class AppComponent {
 
-  name = 'Username'
+  user;
 
   constructor(
     public authService: AuthService,
@@ -29,6 +29,8 @@ export class AppComponent {
     translate.use(lang);
     // const browserLang = translate.getBrowserLang();
     // translate.use(browserLang.match(/en|fr|af|de|es/) ? browserLang : (storedLang ? storedLang : 'en'));
+
+    this.user = this.authService.getUser();
   }
 
   isLoggedIn() {
@@ -37,6 +39,7 @@ export class AppComponent {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.router.navigate(['login']);
   }
 

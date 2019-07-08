@@ -7,7 +7,7 @@
     <span class="spacer"></span>
     <div *ngIf="isLoggedIn()">
       <button mat-button [matMenuTriggerFor]="menu">
-        {{'HEADER.NAME' | translate:{name:name} }}  <mat-icon>more_vert</mat-icon>
+        {{'HEADER.NAME' | translate:{name:user.email} }}  <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>{{ "HEADER.PROFILE" | translate }}</button>

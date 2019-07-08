@@ -6,6 +6,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class AuthService {
+  private _user; // local copy of user from Localstorage
 
   private LOGIN_URL = 'http://localhost:3030/authentication';
   private REGISTRATION_URL = 'http://localhost:3030/users/';
@@ -23,7 +24,20 @@ export class AuthService {
     return this.httpClient.post(this.REGISTRATION_URL, user);
   }
 
-  public isAuthenticated(): boolean {
+  getUser() {
+    if (this._user) {
+      return this._user;
+    } else {
+      this._user = JSON.parse(localStorage.getItem('user'));
+      return this._user;
+    }
+  }
+
+  setUser(user) {
+    this._user = user;
+  }
+
+  isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
     if (!token) {
       return false;
