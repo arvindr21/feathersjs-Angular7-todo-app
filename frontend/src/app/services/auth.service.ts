@@ -33,7 +33,7 @@ export class AuthService {
     }
   }
 
-  setUser(user) {
+  public setUser(user) {
     this._user = user;
   }
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../../../services/todos.service';
-import { PageEvent } from '@angular/material';
-import { MatDialog } from '@angular/material';
-import { MatSnackBar } from '@angular/material';
+import { PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ConfirmationDialogComponent } from '../../shared/confirmation-dialog/confirmation-dialog.component';
 
