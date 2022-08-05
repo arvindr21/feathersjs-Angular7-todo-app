@@ -47,7 +47,7 @@
     "feathers-swagger": "^0.7.3",
     "helmet": "^3.16.0",
     "mongodb-core": "^3.2.3",
-    "mongoose": "^5.5.3",
+    "mongoose": "^5.7.5",
     "serve-favicon": "^2.5.0",
     "winston": "^3.2.1"
   },
