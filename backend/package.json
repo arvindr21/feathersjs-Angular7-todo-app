@@ -44,7 +44,7 @@
     "feathers-hooks-common": "^4.20.7",
     "feathers-mongoose": "^7.3.2",
     "feathers-permissions": "^0.2.1",
-    "feathers-swagger": "^0.7.3",
+    "feathers-swagger": "^2.0.0",
     "helmet": "^3.16.0",
     "mongodb-core": "^3.2.3",
     "mongoose": "^5.5.3",
